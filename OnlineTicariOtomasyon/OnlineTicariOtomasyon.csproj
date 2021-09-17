@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -45,6 +46,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -120,10 +127,22 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KategoriController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Model\Admin.cs" />
+    <Compile Include="Models\Model\Cari.cs" />
+    <Compile Include="Models\Model\DataContext.cs" />
+    <Compile Include="Models\Model\Departman.cs" />
+    <Compile Include="Models\Model\Fatura.cs" />
+    <Compile Include="Models\Model\FaturaKalem.cs" />
+    <Compile Include="Models\Model\Gider.cs" />
+    <Compile Include="Models\Model\Kategori.cs" />
+    <Compile Include="Models\Model\Personel.cs" />
+    <Compile Include="Models\Model\SatisHareket.cs" />
+    <Compile Include="Models\Model\Urun.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -131,12 +150,98 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\DataTables\jquery-3.6.0.min.js" />
+    <Content Include="Content\DataTables\jquery.dataTables.css" />
+    <Content Include="Content\DataTables\jquery.dataTables.js" />
     <Content Include="favicon.ico" />
+    <Content Include="Files\dist\401.html" />
+    <Content Include="Files\dist\404.html" />
+    <Content Include="Files\dist\500.html" />
+    <Content Include="Files\dist\assets\demo\chart-area-demo.js" />
+    <Content Include="Files\dist\assets\demo\chart-bar-demo.js" />
+    <Content Include="Files\dist\assets\demo\chart-pie-demo.js" />
+    <Content Include="Files\dist\assets\demo\datatables-demo.js" />
+    <Content Include="Files\dist\assets\img\error-404-monochrome.svg" />
+    <Content Include="Files\dist\charts.html" />
+    <Content Include="Files\dist\css\1.png" />
+    <Content Include="Files\dist\css\styles.css" />
+    <Content Include="Files\dist\index.html" />
+    <Content Include="Files\dist\js\scripts.js" />
+    <Content Include="Files\dist\layout-sidenav-light.html" />
+    <Content Include="Files\dist\layout-static.html" />
+    <Content Include="Files\dist\login.html" />
+    <Content Include="Files\dist\password.html" />
+    <Content Include="Files\dist\register.html" />
+    <Content Include="Files\dist\tables.html" />
+    <Content Include="Files\index.html" />
+    <Content Include="Files\scripts\build-assets.js" />
+    <Content Include="Files\scripts\build-pug.js" />
+    <Content Include="Files\scripts\build-scripts.js" />
+    <Content Include="Files\scripts\build-scss.js" />
+    <Content Include="Files\scripts\clean.js" />
+    <Content Include="Files\scripts\render-assets.js" />
+    <Content Include="Files\scripts\render-pug.js" />
+    <Content Include="Files\scripts\render-scripts.js" />
+    <Content Include="Files\scripts\render-scss.js" />
+    <Content Include="Files\scripts\sb-watch.js" />
+    <Content Include="Files\scripts\start-debug.js" />
+    <Content Include="Files\scripts\start.js" />
+    <Content Include="Files\src\assets\demo\chart-area-demo.js" />
+    <Content Include="Files\src\assets\demo\chart-bar-demo.js" />
+    <Content Include="Files\src\assets\demo\chart-pie-demo.js" />
+    <Content Include="Files\src\assets\demo\datatables-demo.js" />
+    <Content Include="Files\src\assets\img\error-404-monochrome.svg" />
+    <Content Include="Files\src\js\scripts.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Files\.browserslistrc" />
+    <Content Include="Files\.gitignore" />
+    <Content Include="Files\.travis.yml" />
+    <Content Include="Files\LICENSE" />
+    <Content Include="Files\package-lock.json" />
+    <Content Include="Files\package.json" />
+    <Content Include="Files\README.md" />
+    <Content Include="Files\src\pug\layouts\authentication.pug" />
+    <Content Include="Files\src\pug\layouts\dashboard.pug" />
+    <Content Include="Files\src\pug\layouts\error.pug" />
+    <Content Include="Files\src\pug\layouts\includes\footer.pug" />
+    <Content Include="Files\src\pug\layouts\includes\head\css.pug" />
+    <Content Include="Files\src\pug\layouts\includes\head\icons.pug" />
+    <Content Include="Files\src\pug\layouts\includes\head\meta.pug" />
+    <Content Include="Files\src\pug\layouts\includes\head\title.pug" />
+    <Content Include="Files\src\pug\layouts\includes\navigation\sidenav.pug" />
+    <Content Include="Files\src\pug\layouts\includes\navigation\topnav.pug" />
+    <Content Include="Files\src\pug\layouts\includes\scripts.pug" />
+    <Content Include="Files\src\pug\pages\401.pug" />
+    <Content Include="Files\src\pug\pages\404.pug" />
+    <Content Include="Files\src\pug\pages\500.pug" />
+    <Content Include="Files\src\pug\pages\charts.pug" />
+    <Content Include="Files\src\pug\pages\includes\datatable.pug" />
+    <Content Include="Files\src\pug\pages\includes\page-header.pug" />
+    <Content Include="Files\src\pug\pages\index.pug" />
+    <Content Include="Files\src\pug\pages\layout-sidenav-light.pug" />
+    <Content Include="Files\src\pug\pages\layout-static.pug" />
+    <Content Include="Files\src\pug\pages\login.pug" />
+    <Content Include="Files\src\pug\pages\password.pug" />
+    <Content Include="Files\src\pug\pages\register.pug" />
+    <Content Include="Files\src\pug\pages\tables.pug" />
+    <Content Include="Files\src\scss\layout\_authentication.scss" />
+    <Content Include="Files\src\scss\layout\_dashboard-default.scss" />
+    <Content Include="Files\src\scss\layout\_dashboard-fixed.scss" />
+    <Content Include="Files\src\scss\layout\_error.scss" />
+    <Content Include="Files\src\scss\navigation\sidenav\_sidenav-dark.scss" />
+    <Content Include="Files\src\scss\navigation\sidenav\_sidenav-light.scss" />
+    <Content Include="Files\src\scss\navigation\sidenav\_sidenav.scss" />
+    <Content Include="Files\src\scss\navigation\_nav.scss" />
+    <Content Include="Files\src\scss\navigation\_topnav.scss" />
+    <Content Include="Files\src\scss\styles.scss" />
+    <Content Include="Files\src\scss\variables\_navigation.scss" />
+    <Content Include="Files\src\scss\variables\_spacing.scss" />
+    <Content Include="Files\src\scss\_global.scss" />
+    <Content Include="Files\src\scss\_variables.scss" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -156,16 +261,11 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Kategori\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -213,7 +313,10 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
   </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
