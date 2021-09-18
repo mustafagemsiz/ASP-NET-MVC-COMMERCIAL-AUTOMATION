@@ -14,7 +14,8 @@ namespace OnlineTicariOtomasyon.Models.Model
 
         [Column(TypeName = "Varchar")]
         [StringLength(30, ErrorMessage = "En fazla 30 karakter giriniz.")]
-        [MinLength(2, ErrorMessage = "Lütfen boş alan bırakmayınız.")]
+        [Required(ErrorMessage = "Lütfen boş alan bırakmayınız.")]
+        [MinLength(2, ErrorMessage = "Lütfen daha uzun bir değer giriniz.")]
         public string DepartmanAd { get; set; }
 
         public ICollection<Personel> Personels { get; set; }

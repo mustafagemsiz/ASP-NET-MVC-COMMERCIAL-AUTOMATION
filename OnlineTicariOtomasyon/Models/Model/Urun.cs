@@ -13,12 +13,16 @@ namespace OnlineTicariOtomasyon.Models.Model
         public int UrunId { get; set; }
         [Column(TypeName ="Varchar")]
         [StringLength(30,ErrorMessage ="En fazla 30 karakter giriniz.")]
-        [MinLength(2,ErrorMessage ="Lütfen boş alan bırakmayınız.")]
+        [Required(ErrorMessage = "Lütfen boş alan bırakmayınız.")]
+        [MinLength(2, ErrorMessage = "Lütfen daha uzun bir değer giriniz.")]
         public string UrunAd { get; set; }
+
         [Column(TypeName = "Varchar")]
         [StringLength(30, ErrorMessage = "En fazla 30 karakter giriniz.")]
-        [MinLength(2, ErrorMessage = "Lütfen boş alan bırakmayınız.")]
+        [Required(ErrorMessage = "Lütfen boş alan bırakmayınız.")]
+        [MinLength(2, ErrorMessage = "Lütfen daha uzun bir değer giriniz.")]
         public string Marka { get; set; }
+
         public short Stok { get; set; }
         public decimal AlisFiyat { get; set; }
         public decimal SatisFiyat { get; set; }
@@ -26,7 +30,9 @@ namespace OnlineTicariOtomasyon.Models.Model
 
         [Column(TypeName = "Varchar")]
         [StringLength(250, ErrorMessage = "En fazla 250 karakter giriniz.")]
-        [MinLength(2, ErrorMessage = "Lütfen boş alan bırakmayınız.")]
+        [Required(ErrorMessage = "Lütfen boş alan bırakmayınız.")]
+        [MinLength(2, ErrorMessage = "Lütfen daha uzun bir değer giriniz.")]
+
         public string UrunGorsel { get; set; }
 
         public Kategori Kategori { get; set; }

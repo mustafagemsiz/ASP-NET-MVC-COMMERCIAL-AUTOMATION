@@ -13,13 +13,15 @@ namespace OnlineTicariOtomasyon.Models.Model
         public int AdminId { get; set; }
 
         [Column(TypeName = "Varchar")]
+        [Required(ErrorMessage = "Lütfen boş alan bırakmayınız.")]
         [StringLength(30, ErrorMessage = "En fazla 30 karakter giriniz.")]
-        [MinLength(2, ErrorMessage = "Lütfen boş alan bırakmayınız.")]
+        [MinLength(2, ErrorMessage = "Lütfen daha uzun bir değer giriniz.")]
         public string KullaniciAd { get; set; }
 
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
-        [MinLength(2, ErrorMessage = "Lütfen boş alan bırakmayınız.")]
+        [Required(ErrorMessage = "Lütfen boş alan bırakmayınız.")]
+        [MinLength(2, ErrorMessage = "Lütfen daha uzun bir değer giriniz.")]
         public string Sifre { get; set; }
 
         [StringLength(1)]

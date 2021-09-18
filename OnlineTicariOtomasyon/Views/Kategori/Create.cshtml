@@ -1,0 +1,21 @@
+﻿@model OnlineTicariOtomasyon.Models.Model.Kategori
+@{
+    ViewBag.Title = "Yeni Kategori Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-6" style="margin:auto; background-color:">
+    <h2 style="text-align:center; margin-top:15px;">Kategori Ekleme Sayfası</h2>
+
+    @using (Html.BeginForm("Create", "Kategori", FormMethod.Post))
+    {
+        <div>
+            <label style="font-weight:bold;">Kategori Ad</label>
+            @Html.TextBoxFor(x => x.KategoriAd, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.KategoriAd, null, new { @class = "text-danger" })
+            <br />
+            <button style="margin-top:5px;" class="btn btn-success">Kaydet</button>
+        </div>
+
+    }
+</div>

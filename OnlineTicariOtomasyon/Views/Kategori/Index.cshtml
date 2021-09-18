@@ -1,13 +1,14 @@
-﻿
+﻿@using OnlineTicariOtomasyon.Models.Model
+@model List<Kategori>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Kategoriler";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 
 <h2 style="text-align:center; margin-top:15px;">Kategoriler</h2>
-<button style="margin-bottom:15px;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Kategori Ekle</button>
-<table class="myList table table-bordered table-striped table-hover">
+<a href="~/Kategori/Create/" style="margin-bottom:15px;" class="btn btn-primary">Kategori Ekle</a>
+<table class="table table-bordered table-striped table-hover myDataTables">
     <thead style="text-align:center;">
         <tr>
             <th scope="col">Kategori Ad</th>
@@ -15,11 +16,17 @@
         </tr>
     </thead>
     <tbody style="text-align:center;">
-        
+        @foreach (var item in Model)
+        {
             <tr>
-                <td>aaa</td>
-                <td>aaa</td>
+                <td>@item.KategoriAd</td>
+                <td>
+                    @Html.ActionLink("Düzenle", "Edit", new { id = item.KategoriId }, new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Sil", "Delete", new { id = item.KategoriId }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istediğine emin misin?');" })
+                </td>
             </tr>
-        
+        }
+
+
     </tbody>
 </table>

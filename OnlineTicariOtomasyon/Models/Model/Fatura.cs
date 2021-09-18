@@ -18,7 +18,8 @@ namespace OnlineTicariOtomasyon.Models.Model
 
         [Column(TypeName = "Varchar")]
         [StringLength(6, ErrorMessage = "En fazla 6 karakter giriniz.")]
-        [MinLength(1, ErrorMessage = "Lütfen boş alan bırakmayınız.")]
+        [Required(ErrorMessage = "Lütfen boş alan bırakmayınız.")]
+        [MinLength(2, ErrorMessage = "Lütfen daha uzun bir değer giriniz.")]
         public string FaturaSıraNo { get; set; }
 
         public DateTime Tarih { get; set; }
@@ -26,17 +27,20 @@ namespace OnlineTicariOtomasyon.Models.Model
 
         [Column(TypeName = "Varchar")]
         [StringLength(60, ErrorMessage = "En fazla 60 karakter giriniz.")]
-        [MinLength(2, ErrorMessage = "Lütfen boş alan bırakmayınız.")]
+        [Required(ErrorMessage = "Lütfen boş alan bırakmayınız.")]
+        [MinLength(2, ErrorMessage = "Lütfen daha uzun bir değer giriniz.")]
         public string VergiDairesi { get; set; }
 
         [Column(TypeName = "Varchar")]
         [StringLength(30, ErrorMessage = "En fazla 30 karakter giriniz.")]
-        [MinLength(2, ErrorMessage = "Lütfen boş alan bırakmayınız.")]
+        [Required(ErrorMessage = "Lütfen boş alan bırakmayınız.")]
+        [MinLength(2, ErrorMessage = "Lütfen daha uzun bir değer giriniz.")]
         public string TeslimEden { get; set; }
 
         [Column(TypeName = "Varchar")]
         [StringLength(30, ErrorMessage = "En fazla 30 karakter giriniz.")]
-        [MinLength(2, ErrorMessage = "Lütfen boş alan bırakmayınız.")]
+        [Required(ErrorMessage = "Lütfen boş alan bırakmayınız.")]
+        [MinLength(2, ErrorMessage = "Lütfen daha uzun bir değer giriniz.")]
         public string TeslimAlan { get; set; }
 
         public ICollection<FaturaKalem> FaturaKalems { get; set; }

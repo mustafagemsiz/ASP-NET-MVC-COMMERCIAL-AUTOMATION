@@ -12,9 +12,9 @@ namespace OnlineTicariOtomasyon.Models.Model
         [Key]
         public int KategoriId { get; set; }
 
+        [Required(ErrorMessage = "Lütfen boş alan bırakmayınız.")]
         [Column(TypeName = "Varchar")]
-        [StringLength(30, ErrorMessage = "En fazla 30 karakter giriniz.")]
-        [MinLength(2, ErrorMessage = "Lütfen boş alan bırakmayınız.")]
+        [MaxLength(30, ErrorMessage = "En fazla 30 karakter giriniz.")]
         public string KategoriAd { get; set; }
 
         public ICollection<Urun> Uruns { get; set; }

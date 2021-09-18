@@ -14,7 +14,8 @@ namespace OnlineTicariOtomasyon.Models.Model
 
         [Column(TypeName = "Varchar")]
         [StringLength(200, ErrorMessage = "En fazla 200 karakter giriniz.")]
-        [MinLength(2, ErrorMessage = "Lütfen boş alan bırakmayınız.")]
+        [Required(ErrorMessage = "Lütfen boş alan bırakmayınız.")]
+        [MinLength(2, ErrorMessage = "Lütfen daha uzun bir değer giriniz.")]
         public string Aciklama { get; set; }
 
         public DateTime Tarih { get; set; }
