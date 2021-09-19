@@ -1,0 +1,46 @@
+﻿@model OnlineTicariOtomasyon.Models.Model.Urun
+
+@{
+    ViewBag.Title = "Ürün Düzenle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col-md-6" style="margin:auto; background-color:">
+    <h2 style="text-align:center; margin-top:15px;">Ürün Güncelleme Sayfası</h2>
+
+    @using (Html.BeginForm("Edit", "Urun", FormMethod.Post))
+    {
+    <div>
+        @Html.HiddenFor(x => x.UrunId)
+        <label style="font-weight:bold;">Ürün Ad</label>
+        @Html.TextBoxFor(x => x.UrunAd, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.UrunAd, null, new { @class = "text-danger" })
+        <br />
+        <label style="font-weight:bold;">Marka</label>
+        @Html.TextBoxFor(x => x.Marka, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Marka, null, new { @class = "text-danger" })
+        <br />
+        <label style="font-weight:bold;">Stok</label>
+        @Html.TextBoxFor(x => x.Stok, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Stok, null, new { @class = "text-danger" })
+        <br />
+        <label style="font-weight:bold;">Alış Fiyatı</label>
+        @Html.TextBoxFor(x => x.AlisFiyat, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.AlisFiyat, null, new { @class = "text-danger" })
+        <br />
+        <label style="font-weight:bold;">Satış Fiyatı</label>
+        @Html.TextBoxFor(x => x.SatisFiyat, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.SatisFiyat, null, new { @class = "text-danger" })
+        <br />
+        <label style="font-weight:bold;">Kategori</label>
+        @Html.DropDownList("KategoriId", (IEnumerable<SelectListItem>)ViewBag.kategoriAd, new { @class = "form-control" })
+        @*@Html.DropDownListFor(x => x.KategoriId, (List<SelectListItem>)ViewBag.kategoriAd, new { @class = "form-control" })*@
+        <br />
+        <label style="font-weight:bold;">Ürün Görsel</label>
+        @Html.TextBoxFor(x => x.UrunGorsel, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.UrunGorsel, null, new { @class = "text-danger" })
+        <br />
+        <button style="margin-top:5px;" class="btn btn-success">Kaydet</button>
+    </div>
+
+    }
+</div>

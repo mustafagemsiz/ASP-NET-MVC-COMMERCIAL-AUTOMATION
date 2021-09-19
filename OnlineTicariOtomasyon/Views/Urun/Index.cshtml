@@ -1,0 +1,43 @@
+﻿@using OnlineTicariOtomasyon.Models.Model
+@model List<Urun>
+@{
+    ViewBag.Title = "Ürünler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2 style="text-align:center; margin-top:15px;">Ürünler</h2>
+<a href="~/Urun/Create/" style="margin-bottom:15px;" class="btn btn-primary">Ürün Ekle</a>
+<table class="table table-bordered table-striped table-hover myDataTables">
+    <thead style="text-align:center;">
+        <tr>
+            <th scope="col">Ürün Ad</th>
+            <th scope="col">Marka</th>
+            <th scope="col">Stok</th>
+            <th scope="col">Alış Fiyatı</th>
+            <th scope="col">Satış Fiyatı</th>
+            <th scope="col">Kategori</th>
+            <th scope="col">Görsel</th>
+            <th style="width:150px" scope="col">İşlemler</th>
+        </tr>
+    </thead>
+    <tbody style="text-align:center;">
+        @foreach(var item in Model)
+        {
+        <tr>
+            <td>@item.UrunAd</td>
+            <td>@item.Marka</td>
+            <td>@item.Stok</td>
+            <td>@item.AlisFiyat</td>
+            <td>@item.SatisFiyat</td>
+            <td>@item.Kategori.KategoriAd</td>
+            <td>@item.UrunGorsel</td>
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.UrunId }, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Sil", "Delete", new { id = item.UrunId }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istediğine emin misin?');" })
+            </td>
+        </tr>
+
+        }
+
+
+    </tbody>
+</table>

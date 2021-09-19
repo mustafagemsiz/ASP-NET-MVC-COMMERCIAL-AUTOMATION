@@ -11,6 +11,7 @@ namespace OnlineTicariOtomasyon.Models.Model
     {
         [Key]
         public int UrunId { get; set; }
+
         [Column(TypeName ="Varchar")]
         [StringLength(30,ErrorMessage ="En fazla 30 karakter giriniz.")]
         [Required(ErrorMessage = "Lütfen boş alan bırakmayınız.")]
@@ -32,10 +33,10 @@ namespace OnlineTicariOtomasyon.Models.Model
         [StringLength(250, ErrorMessage = "En fazla 250 karakter giriniz.")]
         [Required(ErrorMessage = "Lütfen boş alan bırakmayınız.")]
         [MinLength(2, ErrorMessage = "Lütfen daha uzun bir değer giriniz.")]
-
         public string UrunGorsel { get; set; }
 
-        public Kategori Kategori { get; set; }
+        public int KategoriId { get; set; }
+        public virtual Kategori Kategori { get; set; }
         public ICollection<SatisHareket> SatisHarekets { get; set; }
 
     }
