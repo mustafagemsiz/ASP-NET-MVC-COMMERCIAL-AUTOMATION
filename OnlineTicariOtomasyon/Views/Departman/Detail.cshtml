@@ -1,0 +1,37 @@
+﻿@using OnlineTicariOtomasyon.Models.Model
+@model List<Personel>
+@{
+    ViewBag.Title = "Departman Detay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<ol class="breadcrumb mb-6">
+    <li class="breadcrumb-item active">
+        @ViewBag.ad Departmanı
+    </li>
+</ol>
+<table class="table table-bordered table-striped table-hover myDataTables">
+    <thead style="text-align:center;">
+        <tr>
+            <th scope="col">Personel Ad Soyad</th>
+            <th scope="col">Adres</th>
+            <th scope="col">Telefon</th>
+            <th scope="col">Görsel</th>
+            <th scope="col">Satışlar</th>
+        </tr>
+    </thead>
+    <tbody style="text-align:center;">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.PersonelAd @item.PersonelSoyad</td>
+                <td>@item.PersonelAdres</td>
+                <td>@item.PersonelTelefon</td>
+                <td>@item.PersonelGorsel</td>
+                <td>
+                    @Html.ActionLink("Detay", "PersonalDetail", new { id = item.PersonelId }, new { @class = "btn btn-info" })
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

@@ -1,0 +1,36 @@
+﻿@using OnlineTicariOtomasyon.Models.Model
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "PersonalDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered table-striped table-hover myDataTables">
+    <thead style="text-align:center;">
+        <tr>
+            <th scope="col">Ürün</th>
+            <th scope="col">Cari</th>
+            <th scope="col">Adet</th>
+            <th scope="col">Fiyat</th>
+            <th scope="col">Toplam</th>
+            <th scope="col">Tarih</th>
+            <th scope="col">İşlemler</th>
+
+        </tr>
+    </thead>
+    <tbody style="text-align:center;">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Urun.UrunAd</td>
+                <td>@item.Cari.CariAd</td>
+                <td>@item.Adet</td>
+                <td>@item.Fiyat</td>
+                <td>@item.ToplamTutar</td>
+                <td>@Convert.ToDateTime(item.Tarih).ToShortDateString()</td>
+                <td><a href="#" class="btn btn-default" style="color:white; background-color:cornflowerblue">Yazdır</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>

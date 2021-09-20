@@ -18,6 +18,8 @@ namespace OnlineTicariOtomasyon.Models.Model
         [MinLength(2, ErrorMessage = "Lütfen daha uzun bir değer giriniz.")]
         public string DepartmanAd { get; set; }
 
+        public bool Durum { get; set; }
+
         public ICollection<Personel> Personels { get; set; }
     }
 }
