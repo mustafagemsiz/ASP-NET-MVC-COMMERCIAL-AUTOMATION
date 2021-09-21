@@ -1,0 +1,36 @@
+﻿@using OnlineTicariOtomasyon.Models.Model
+@model List<Cari>
+
+@{
+    ViewBag.Title = "Cariler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<a href="~/Cari/Create/" style="margin-bottom:15px;" class="btn btn-primary">Yeni Cari Ekle</a>
+<table class="table table-bordered table-striped table-hover myDataTables">
+    <thead style="text-align:center;">
+        <tr>
+            <th scope="col">Ad</th>
+            <th scope="col">Soyad</th>
+            <th scope="col">Şehir</th>
+            <th scope="col">Mail</th>
+            <th style="width:250px" scope="col">İşlemler</th>
+        </tr>
+    </thead>
+    <tbody style="text-align:center;">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CariAd</td>
+                <td>@item.CariSoyad</td>
+                <td>@item.CariSehir</td>
+                <td>@item.CariMail</td>
+                <td>
+                    @Html.ActionLink("Düzenle", "Edit", new { id = item.CariId }, new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Sil", "Delete", new { id = item.CariId }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istediğine emin misin?');" })
+                    @Html.ActionLink("Satış Geçmişi", "CustomerDetail", new { id = item.CariId }, new { @class = "btn btn-info" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

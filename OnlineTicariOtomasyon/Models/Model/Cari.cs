@@ -35,5 +35,7 @@ namespace OnlineTicariOtomasyon.Models.Model
         [MinLength(2, ErrorMessage = "Lütfen daha uzun bir değer giriniz.")]
         public string CariMail { get; set; }
         public ICollection<SatisHareket> SatisHarekets { get; set; }
+
+        public bool Durum { get; set; }
     }
 }

@@ -1,0 +1,40 @@
+﻿@model OnlineTicariOtomasyon.Models.Model.Personel
+
+@{
+    ViewBag.Title = "Yeni Personel";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-6" style="margin:auto;">
+
+    @using (Html.BeginForm("Create", "Personel", FormMethod.Post))
+    {
+    <div>
+        <label style="font-weight:bold;">Personel Ad</label>
+        @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.PersonelAd, null, new { @class = "text-danger" })
+        <br />
+        <label style="font-weight:bold;">Personel Soyad</label>
+        @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.PersonelSoyad, null, new { @class = "text-danger" })
+        <br />
+        <label style="font-weight:bold;">Personel Adres</label>
+        @Html.TextBoxFor(x => x.PersonelAdres, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.PersonelAdres, null, new { @class = "text-danger" })
+        <br />
+        <label style="font-weight:bold;">Personel Telefon</label>
+        @Html.TextBoxFor(x => x.PersonelTelefon, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.PersonelTelefon, null, new { @class = "text-danger" })
+        <br />
+        <label style="font-weight:bold;">Görsel</label>
+        @Html.TextBoxFor(x => x.PersonelGorsel, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.PersonelGorsel, null, new { @class = "text-danger" })
+        <br />
+        <label style="font-weight:bold;">Departman seçiniz</label>
+        @Html.DropDownList("DepartmanId", (IEnumerable<SelectListItem>)ViewBag.departmanAd, new { @class = "form-control" })
+        <br />
+        <button style="margin-top:5px;" class="btn btn-success">Kaydet</button>
+    </div>
+
+    }
+</div>

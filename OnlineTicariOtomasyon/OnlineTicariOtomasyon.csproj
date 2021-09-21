@@ -127,8 +127,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CariController.cs" />
     <Compile Include="Controllers\DepartmanController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
+    <Compile Include="Controllers\PersonelController.cs" />
     <Compile Include="Controllers\UrunController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -272,6 +274,13 @@
     <Content Include="Views\Departman\Edit.cshtml" />
     <Content Include="Views\Departman\Detail.cshtml" />
     <Content Include="Views\Departman\PersonalDetail.cshtml" />
+    <Content Include="Views\Cari\Index.cshtml" />
+    <Content Include="Views\Cari\Create.cshtml" />
+    <Content Include="Views\Cari\Edit.cshtml" />
+    <Content Include="Views\Cari\CustomerDetail.cshtml" />
+    <Content Include="Views\Personel\Index.cshtml" />
+    <Content Include="Views\Personel\Create.cshtml" />
+    <Content Include="Views\Personel\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
