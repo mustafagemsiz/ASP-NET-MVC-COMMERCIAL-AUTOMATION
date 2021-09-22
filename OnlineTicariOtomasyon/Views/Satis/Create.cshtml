@@ -1,0 +1,38 @@
+﻿@model OnlineTicariOtomasyon.Models.Model.SatisHareket
+
+@{
+    ViewBag.Title = "Yeni Satış";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-6" style="margin:auto;">
+    @using (Html.BeginForm("Create", "Satis", FormMethod.Post))
+    {
+    <div>
+        <label style="font-weight:bold;">Ürün Ad</label>
+        @Html.DropDownList("UrunId", (IEnumerable<SelectListItem>)ViewBag.urunAd, new { @class = "form-control" })
+        <br />
+        <label style="font-weight:bold;">Cari</label>
+        @Html.DropDownList("CariId", (IEnumerable<SelectListItem>)ViewBag.cariAdSoyad, new { @class = "form-control" })
+        <br />
+        <label style="font-weight:bold;">Personel</label>
+        @Html.DropDownList("PersonelId", (IEnumerable<SelectListItem>)ViewBag.personelAdSoyad, new { @class = "form-control" })
+        <br />
+        <label style="font-weight:bold;">Adet</label>
+        @Html.TextBoxFor(x => x.Adet, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Adet, null, new { @class = "text-danger" })
+        <br />
+        <label style="font-weight:bold;">Fiyat</label>
+        @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Fiyat, null, new { @class = "text-danger" })
+        <br />
+        <label style="font-weight:bold;">Toplam Tutar</label>
+        @Html.TextBoxFor(x => x.ToplamTutar, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.ToplamTutar, null, new { @class = "text-danger" })
+        <br />
+        <button style="margin-top:5px;" class="btn btn-success">Satış Yap</button>
+    </div>
+
+    }
+</div>
+
