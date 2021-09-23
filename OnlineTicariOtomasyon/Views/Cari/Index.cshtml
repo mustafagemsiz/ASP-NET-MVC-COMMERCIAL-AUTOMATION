@@ -10,8 +10,7 @@
 <table class="table table-bordered table-striped table-hover myDataTables">
     <thead style="text-align:center;">
         <tr>
-            <th scope="col">Ad</th>
-            <th scope="col">Soyad</th>
+            <th scope="col">Cari Ad Soyad</th>
             <th scope="col">Şehir</th>
             <th scope="col">Mail</th>
             <th style="width:250px" scope="col">İşlemler</th>
@@ -21,8 +20,7 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.CariAd</td>
-                <td>@item.CariSoyad</td>
+                <td>@item.CariAd @item.CariSoyad</td>
                 <td>@item.CariSehir</td>
                 <td>@item.CariMail</td>
                 <td>
