@@ -1,0 +1,37 @@
+﻿@model OnlineTicariOtomasyon.Models.Model.FaturaKalem
+
+@{
+    ViewBag.Title = "Yeni Fatura Kalem";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-6" style="margin:auto;">
+
+    @using (Html.BeginForm("Create", "FaturaKalem", FormMethod.Post))
+    {
+    <div>
+        <label style="font-weight:bold;">Açıklama</label>
+        @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Aciklama, null, new { @class = "text-danger" })
+        <br />
+        <label style="font-weight:bold;">Miktar</label>
+        @Html.TextBoxFor(x => x.Miktar, new { @class = "form-control", @type = "number" })
+        @Html.ValidationMessageFor(x => x.Miktar, null, new { @class = "text-danger" })
+        <br />
+        <label style="font-weight:bold;">Birim Fiyat</label>
+        @Html.TextBoxFor(x => x.BirimFiyat, new { @class = "form-control", @type = "number" })
+        @Html.ValidationMessageFor(x => x.BirimFiyat, null, new { @class = "text-danger" })
+        <br />
+        <label style="font-weight:bold;">Tutar</label>
+        @Html.TextBoxFor(x => x.Tutar, new { @class = "form-control", @type = "number" })
+        @Html.ValidationMessageFor(x => x.Tutar, null, new { @class = "text-danger" })
+        <br />
+        <label style="font-weight:bold;">Fatura No</label>
+        @Html.TextBoxFor(x => x.FaturaId, new { @class = "form-control", @type = "number" })
+        @Html.ValidationMessageFor(x => x.FaturaId, null, new { @class = "text-danger" })
+        <br />
+        <button style="margin-top:5px;" class="btn btn-success">Kaydet</button>
+    </div>
+
+    }
+</div>

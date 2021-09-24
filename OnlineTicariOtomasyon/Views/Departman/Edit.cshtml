@@ -11,7 +11,7 @@
     {
         <div>
             @Html.HiddenFor(x => x.DepartmanId)
-            <label style="font-weight:bold;">Kategori Ad</label>
+            <label style="font-weight:bold;">Departman Ad</label>
             @Html.TextBoxFor(x => x.DepartmanAd, new { @class = "form-control" })
             @Html.ValidationMessageFor(x => x.DepartmanAd, null, new { @class = "text-danger" })
             <br />

@@ -1,0 +1,46 @@
+﻿@model OnlineTicariOtomasyon.Models.Model.Fatura
+
+@{
+    ViewBag.Title = "Fatura Düzenle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-6" style="margin:auto;">
+
+    @using (Html.BeginForm("Edit", "Fatura", FormMethod.Post))
+    {
+        <div>
+            @Html.HiddenFor(x=>x.FaturaId)
+            <label style="font-weight:bold;">Fatura Seri No</label>
+            @Html.TextBoxFor(x => x.FaturaSeriNo, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.FaturaSeriNo, null, new { @class = "text-danger" })
+            <br />
+            <label style="font-weight:bold;">Fatura Sıra No</label>
+            @Html.TextBoxFor(x => x.FaturaSıraNo, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.FaturaSıraNo, null, new { @class = "text-danger" })
+            <br />
+            <label style="font-weight:bold;">Tarih</label>
+            @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Tarih, null, new { @class = "text-danger" })
+            <br />
+            <label style="font-weight:bold;">Saat</label>
+            @Html.TextBoxFor(x => x.Saat, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Saat, null, new { @class = "text-danger" })
+            <br />
+            <label style="font-weight:bold;">Vergi Dairesi</label>
+            @Html.TextBoxFor(x => x.VergiDairesi, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.VergiDairesi, null, new { @class = "text-danger" })
+            <br />
+            <label style="font-weight:bold;">Teslim Eden</label>
+            @Html.TextBoxFor(x => x.TeslimEden, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.TeslimEden, null, new { @class = "text-danger" })
+            <br />
+            <label style="font-weight:bold;">Teslim Alan</label>
+            @Html.TextBoxFor(x => x.TeslimAlan, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.TeslimAlan, null, new { @class = "text-danger" })
+            <br />
+            <button style="margin-top:5px;" class="btn btn-success">Kaydet</button>
+        </div>
+
+    }
+</div>
