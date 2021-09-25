@@ -111,12 +111,16 @@
                             Yeni Fatura Kalem
                         </a>
                         <a class="nav-link" href="#">
-                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-cart-arrow-down"></i></div>
                             Giderler
                         </a>
                         <a class="nav-link" href="~/Satis/Index/">
                             <div class="sb-nav-link-icon"><i class="fas fa-history"></i></div>
                             Hareketler
+                        </a>
+                        <a class="nav-link" href="~/Istatistik/Index/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            İstatistikler
                         </a>
                     </div>
                 </div>
@@ -125,12 +129,12 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid">
-                    <div style="margin:10px;"></div>
+                    <div style="margin:5px;"></div>
                     @RenderBody()
 
                 </div>
             </main>
-            <footer class="py-4 bg-light mt-auto">
+            <footer class="py-3 bg-light mt-auto">
                 <div class="container-fluid">
                     <div class="d-flex align-items-center justify-content-between small">
                         <div class="text-muted">Copyright &copy; Your Website 2019</div>
@@ -161,23 +165,50 @@
     <script src="~/Files/dist/js/scripts.js"></script>
 
     <script>
+            $(document).ready(function () {
+               var table = $('#example').DataTable({
+                    //language: {
+                    //    url: "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+                   //},
+                   dom: "Blfrtip",
+                   language: {
+                       url: "//cdn.datatables.net/plug-ins/1.10.12/i18n/Turkish.json"
+                   },
+                   lengthChange: true,
+                    //buttons: ['copy', 'excel', 'csv', 'pdf', 'colvis']
+                    buttons: [
+                        { extend: 'excelHtml5', className: 'btn btn-info' },
+                        { extend: 'pdfHtml5', orientation: 'centerspace', className: 'btn btn-success' }
+                    ]
+                });
+                table.buttons().container()
+                    .appendTo('#example_wrapper .col-md-6:eq(0)');
+            });
+        </script>
+
+    @*<script>
+
+
         $(document).ready(function () {
-           var table = $('#example').DataTable({
-                //language: {
-                //    url: "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
-               //},      
-               lengthChange: true,
-                //buttons: ['copy', 'excel', 'csv', 'pdf', 'colvis']
+
+
+            var table = $('#example').DataTable({
+                language: {
+                    url: "//cdn.datatables.net/plug-ins/1.10.12/i18n/Turkish.json"
+                },
+
+                lengthChange: true,
+
+                dom: "Blfrtip",
                 buttons: [
                     { extend: 'excelHtml5', className: 'btn btn-info' },
                     { extend: 'pdfHtml5', orientation: 'centerspace', className: 'btn btn-success' }
-                ]
+                ],
             });
-            table.buttons().container()
+                table.buttons().container()
                 .appendTo('#example_wrapper .col-md-6:eq(0)');
-        });
-    </script>
-
+            });
+    </script>*@
 </body>
 </html>
 

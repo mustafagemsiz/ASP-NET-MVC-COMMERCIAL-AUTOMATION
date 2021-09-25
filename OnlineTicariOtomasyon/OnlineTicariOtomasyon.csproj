@@ -131,6 +131,7 @@
     <Compile Include="Controllers\DepartmanController.cs" />
     <Compile Include="Controllers\FaturaController.cs" />
     <Compile Include="Controllers\FaturaKalemController.cs" />
+    <Compile Include="Controllers\IstatistikController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
     <Compile Include="Controllers\PersonelController.cs" />
     <Compile Include="Controllers\SatisController.cs" />
@@ -293,6 +294,7 @@
     <Content Include="Views\Fatura\Edit.cshtml" />
     <Content Include="Views\Fatura\Detail.cshtml" />
     <Content Include="Views\FaturaKalem\Create.cshtml" />
+    <Content Include="Views\Istatistik\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
