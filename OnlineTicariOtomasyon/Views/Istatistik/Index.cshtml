@@ -4,106 +4,106 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 <style>
-    .boxConfig{
-        padding:30px;
-        margin:0;
-        height:150px;
-        width:150px;
+    .boxConfig {
+        padding: 30px;
+        margin: 0;
+        height: 150px;
+        width: 150px;
     }
 </style>
-<div class="row" style="text-align:center;">
+<div class="row" style="text-align:center; color:white;">
     <div class="col-md-3 boxConfig" style="background-color:#1abc9c;">
-        <h1>15000</h1>
+        <h1>@ViewBag.Cari</h1>
         <h4 style="font-weight:bold;">Toplam Cari</h4>
     </div>
     <div class="col-md-3 boxConfig" style="background-color:#16a085;">
         <div class="thumbnail">
-            <h1>15000</h1>
+            <h1>@ViewBag.Urun</h1>
             <h4 style="font-weight:bold;">Ürün Sayısı</h4>
         </div>
     </div>
     <div class="col-md-3 boxConfig" style="background-color:#2ecc71;">
         <div class="thumbnail">
-            <h1>15000</h1>
+            <h1>@ViewBag.Personel</h1>
             <h4 style="font-weight:bold;">Personel Sayısı</h4>
         </div>
     </div>
     <div class="col-md-3 boxConfig" style="background-color:#27ae60;">
         <div class="thumbnail">
-            <h1>15000</h1>
+            <h1>@ViewBag.Kategori</h1>
             <h4 style="font-weight:bold;">Kategori Sayısı</h4>
         </div>
     </div>
     <div class="col-md-3 boxConfig" style="background-color:#3498db;">
         <div class="thumbnail">
-            <h1>15000</h1>
+            <h1>@ViewBag.UrunStok</h1>
             <h4 style="font-weight:bold;">Toplam Stok</h4>
         </div>
     </div>
     <div class="col-md-3 boxConfig" style="background-color:#2980b9;">
         <div class="thumbnail">
-            <h1>15000</h1>
+            <h1>@ViewBag.Marka</h1>
             <h4 style="font-weight:bold;">Marka Sayısı</h4>
         </div>
     </div>
     <div class="col-md-3 boxConfig" style="background-color:#9b59b6;">
         <div class="thumbnail">
-            <h1>15000</h1>
-           <h4 style="font-weight:bold;">Kritik Seviye</h4>
+            <h1>@ViewBag.KritikUrun</h1>
+            <h4 style="font-weight:bold;">Kritik Seviye Ürün</h4>
         </div>
     </div>
     <div class="col-md-3 boxConfig" style="background-color:#8e44ad;">
         <div class="thumbnail">
-            <h1>15000</h1>
+            <h1>@ViewBag.MaxFiyat</h1>
             <h4 style="font-weight:bold;">Max Fiyatlı Ürün</h4>
         </div>
     </div>
     <div class="col-md-3 boxConfig" style="background-color:#f1c40f;">
         <div class="thumbnail">
-            <h1>15000</h1>
+            <h1>@ViewBag.MinFiyat</h1>
             <h4 style="font-weight:bold;">Min Fiyatlı Ürün</h4>
         </div>
     </div>
     <div class="col-md-3 boxConfig" style="background-color:#f39c12;">
         <div class="thumbnail">
-            <h1>15000</h1>
-            <h4 style="font-weight:bold;">Max Marka</h4>
+            <h1>@ViewBag.PopulerMarka</h1>
+            <h4 style="font-weight:bold;">Popüler Marka</h4>
         </div>
     </div>
     <div class="col-md-3 boxConfig" style="background-color:#e67e22;">
         <div class="thumbnail">
-            <h1>15000</h1>
-            <h4 style="font-weight:bold;">Buzdolabı Sayısı</h4>
+            <h1>@ViewBag.BeyazEsya</h1>
+            <h4 style="font-weight:bold;">Beyaz Eşya Stok Sayısı</h4>
         </div>
     </div>
     <div class="col-md-3 boxConfig" style="background-color:#d35400;">
         <div class="thumbnail">
-            <h1>15000</h1>
-            <h4 style="font-weight:bold;">Laptop Sayısı</h4>
+            <h1>@ViewBag.Bilgisayar</h1>
+            <h4 style="font-weight:bold;">Bilgisayar Stok Sayısı</h4>
         </div>
     </div>
     <div class="col-md-3 boxConfig" style="background-color:#e74c3c;">
         <div class="thumbnail">
-            <h1>15000</h1>
+            <h1>@ViewBag.EnCokSatan</h1>
             <h4 style="font-weight:bold;">En Çok Satan</h4>
         </div>
     </div>
     <div class="col-md-3 boxConfig" style="background-color:#c0392b;">
         <div class="thumbnail">
-            <h1>15000</h1>
+            <h1>@ViewBag.KasaToplam ₺</h1>
             <h4 style="font-weight:bold;">Kasadaki Tutar</h4>
         </div>
     </div>
     <div class="col-md-3 boxConfig" style="background-color:#bdc3c7;">
         <div class="thumbnail">
-            <h1>15000</h1>
-            <h4 style="font-weight:bold;">Bugünkü Satışlar</h4>
+            <h1>@ViewBag.GunlukSatis</h1>
+            <h4 style="font-weight:bold;">Günlük Satış Adet</h4>
         </div>
     </div>
     <div class="col-md-3 boxConfig" style="background-color:#95a5a6;">
         <div class="thumbnail">
-            <h1>15000</h1>
-            <h4 style="font-weight:bold;">Bugünkü Kasa</h4>
+            <h1>@ViewBag.GunlukKasa ₺</h1>
+            <h4 style="font-weight:bold;">Günlük Kasa Durum</h4>
         </div>
     </div>
 

@@ -13,13 +13,13 @@
     <meta name="author" content="" />
     <title>@ViewBag.Title</title>
     <link href="~/Files/dist/css/styles.css" rel="stylesheet" />
+
+     @*DataTables*@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
-
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
-
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap4.min.css">
-
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
+
     @*<link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />*@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
@@ -120,8 +120,17 @@
                         </a>
                         <a class="nav-link" href="~/Istatistik/Index/">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                            İstatistikler
+                            İstatistiklera
                         </a>
+                        <a class="nav-link" href="~/Galeri/Index/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-images"></i></div>
+                            Galeri
+                        </a>
+                        <a class="nav-link" href="~/UrunDetay/Index/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-money-check"></i></div>
+                            Ürün Detay
+                        </a>
+
                     </div>
                 </div>
             </nav>
@@ -129,12 +138,12 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid">
-                    <div style="margin:5px;"></div>
+                    <div style="margin:10px;"></div>
                     @RenderBody()
 
                 </div>
             </main>
-            <footer class="py-3 bg-light mt-auto">
+            <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid">
                     <div class="d-flex align-items-center justify-content-between small">
                         <div class="text-muted">Copyright &copy; Your Website 2019</div>
@@ -161,6 +170,8 @@
     <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+
+
     <script src="~/Files/dist/assets/demo/datatables-demo.js"></script>
     <script src="~/Files/dist/js/scripts.js"></script>
 
