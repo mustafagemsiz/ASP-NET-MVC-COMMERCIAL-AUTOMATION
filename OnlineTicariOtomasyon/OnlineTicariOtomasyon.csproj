@@ -148,13 +148,17 @@
     <Compile Include="Models\Model\Cari.cs" />
     <Compile Include="Models\Model\DataContext.cs" />
     <Compile Include="Models\Model\Departman.cs" />
+    <Compile Include="Models\Model\DepartmanPartial.cs" />
     <Compile Include="Models\Model\Fatura.cs" />
     <Compile Include="Models\Model\FaturaKalem.cs" />
     <Compile Include="Models\Model\Gider.cs" />
     <Compile Include="Models\Model\Kategori.cs" />
     <Compile Include="Models\Model\Personel.cs" />
     <Compile Include="Models\Model\SatisHareket.cs" />
+    <Compile Include="Models\Model\SehirListele.cs" />
     <Compile Include="Models\Model\Urun.cs" />
+    <Compile Include="Models\Model\UrunDetay.cs" />
+    <Compile Include="Models\Model\UrunListele.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2553,9 +2557,12 @@
     <Content Include="Views\Istatistik\Index.cshtml" />
     <Content Include="Views\Galeri\Index.cshtml" />
     <Content Include="Views\UrunDetay\Index.cshtml" />
+    <Content Include="Views\Istatistik\ProgressBar.cshtml" />
+    <Content Include="Views\Istatistik\DepartmanPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\DepartmanPartial\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

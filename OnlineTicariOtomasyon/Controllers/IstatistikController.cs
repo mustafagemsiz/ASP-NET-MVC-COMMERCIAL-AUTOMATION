@@ -84,5 +84,32 @@ namespace OnlineTicariOtomasyon.Controllers
 
             return View();
         }
+
+        [HttpGet]
+        public ActionResult ProgressBar()
+        {
+            var sorgu = from x in context.Caris
+                        group x by x.CariSehir into sehir
+                        select new SehirListele
+                        {
+                            Sehir = sehir.Key,
+                            Oran = sehir.Count()
+                        };
+
+            return View(sorgu.ToList());
+        }
+
+        public PartialViewResult DepartmanPartial()
+        {
+            var sorgu = from x in context.Personels
+                        group x by x.DepartmanId into departman
+                        select new DepartmanPartial
+                        {
+                            Departman = departman.Key,
+                            Sayi = departman.Count()
+                        };
+
+            return PartialView(sorgu.ToList());
+        }
     }
 }
