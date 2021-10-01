@@ -111,5 +111,29 @@ namespace OnlineTicariOtomasyon.Controllers
 
             return PartialView(sorgu.ToList());
         }
+
+        public PartialViewResult CariPartial()
+        {
+            var sorgu = context.Caris.ToList();
+            return PartialView(sorgu);
+        }
+
+        public PartialViewResult UrunPartial()
+        {
+            var sorgu = context.Uruns.ToList();
+            return PartialView(sorgu);
+        }
+
+        public PartialViewResult MarkaSayisiPartial()
+        {
+            var sorgu = from x in context.Uruns
+                        group x by x.Marka into sayi
+                        select new MarkaSayisiListele
+                        {
+                            Marka = sayi.Key,
+                            Sayi = sayi.Count()
+                        };
+            return PartialView(sorgu.ToList());
+        }
     }
 }

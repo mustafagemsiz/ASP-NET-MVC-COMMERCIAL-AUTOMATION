@@ -153,6 +153,7 @@
     <Compile Include="Models\Model\FaturaKalem.cs" />
     <Compile Include="Models\Model\Gider.cs" />
     <Compile Include="Models\Model\Kategori.cs" />
+    <Compile Include="Models\Model\MarkaSayisiListele.cs" />
     <Compile Include="Models\Model\Personel.cs" />
     <Compile Include="Models\Model\SatisHareket.cs" />
     <Compile Include="Models\Model\SehirListele.cs" />
@@ -2559,6 +2560,9 @@
     <Content Include="Views\UrunDetay\Index.cshtml" />
     <Content Include="Views\Istatistik\ProgressBar.cshtml" />
     <Content Include="Views\Istatistik\DepartmanPartial.cshtml" />
+    <Content Include="Views\Istatistik\CariPartial.cshtml" />
+    <Content Include="Views\Istatistik\UrunPartial.cshtml" />
+    <Content Include="Views\Istatistik\MarkaSayisiPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
