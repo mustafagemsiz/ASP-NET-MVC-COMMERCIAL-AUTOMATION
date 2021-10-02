@@ -66,5 +66,12 @@ namespace OnlineTicariOtomasyon.Controllers
             }
             return View(p);
         }
+
+        [HttpGet]
+        public ActionResult List()
+        {
+            var deger = context.Personels.ToList();
+            return View(deger);
+        }
     }
 }

@@ -2563,6 +2563,7 @@
     <Content Include="Views\Istatistik\CariPartial.cshtml" />
     <Content Include="Views\Istatistik\UrunPartial.cshtml" />
     <Content Include="Views\Istatistik\MarkaSayisiPartial.cshtml" />
+    <Content Include="Views\Personel\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -102,7 +102,7 @@ namespace OnlineTicariOtomasyon.Controllers
         public PartialViewResult DepartmanPartial()
         {
             var sorgu = from x in context.Personels
-                        group x by x.DepartmanId into departman
+                        group x by x.Departman.DepartmanAd into departman
                         select new DepartmanPartial
                         {
                             Departman = departman.Key,

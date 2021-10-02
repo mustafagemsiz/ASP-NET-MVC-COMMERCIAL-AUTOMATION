@@ -7,7 +7,7 @@ namespace OnlineTicariOtomasyon.Models.Model
 {
     public class DepartmanPartial
     {
-        public int Departman { get; set; }
+        public string Departman { get; set; }
         public int Sayi { get; set; }
     }
 }

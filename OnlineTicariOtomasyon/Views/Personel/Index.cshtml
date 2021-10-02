@@ -6,13 +6,15 @@
 }
 
 <a href="~/Personel/Create/" style="margin-bottom:15px;" class="btn btn-primary">Personel Ekle</a>
+
+<a href="~/Personel/List/" style="margin-bottom:15px; background-color:#e96a6a; color:white;" class="btn btn-default">Ayrıntılı Personel Listesi</a>
+
 <table class="table table-bordered table-striped table-hover myDataTables">
     <thead style="text-align:center;">
         <tr>
             <th scope="col">Personel Ad Soyad</th>
             <th scope="col">Adres</th>
             <th scope="col">Telefon</th>
-            <th scope="col">Görsel</th>
             <th scope="col">Departman</th>
             <th style="width:200px" scope="col">İşlemler</th>
         </tr>
@@ -24,7 +26,6 @@
                 <td>@item.PersonelAd @item.PersonelSoyad</td>
                 <td>@item.PersonelAdres</td>
                 <td>@item.PersonelTelefon</td>
-                <td>@item.PersonelGorsel</td>
                 <td>@item.Departman.DepartmanAd</td>
                 <td>
                     @Html.ActionLink("Düzenle", "Edit", new { id = item.PersonelId }, new { @class = "btn btn-warning" })

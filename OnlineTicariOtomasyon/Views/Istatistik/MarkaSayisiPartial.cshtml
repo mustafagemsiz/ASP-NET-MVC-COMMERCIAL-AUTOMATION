@@ -1,7 +1,8 @@
 ﻿@model IEnumerable<OnlineTicariOtomasyon.Models.Model.MarkaSayisiListele>
+
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Departman Durum</h3>
+        <h3 class="card-title">Ürün Marka Durum</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body p-0">
@@ -16,14 +17,14 @@
             </thead>
             <tbody>
                 @{
-                    int id = 0;}
+                int id = 0;}
                 @foreach (var item in Model)
                 {
                     <tr>
                         <td>@{id++;} @id.</td>
                         <td>@item.Marka</td>
 
-                        @if (item.Sayi <= 20)
+                        @if (item.Sayi == 1)
                         {
 
                             <td>
@@ -35,7 +36,7 @@
                                 <span class="badge bg-danger">@item.Sayi</span>
                             </td>
                         }
-                        @if (item.Sayi >=30 && <=40)
+                        @if (item.Sayi == 2)
                         {
                             <td>
                                 <div class="progress progress-xs">
@@ -46,7 +47,7 @@
                                 <span class="badge bg-warning">@item.Sayi</span>
                             </td>
                         }
-                        @if (item.Sayi == 3)
+                        @if (item.Sayi ==3)
                         {
                             <td>
                                 <div class="progress progress-xs">
@@ -57,7 +58,7 @@
                                 <span class="badge bg-primary">@item.Sayi</span>
                             </td>
                         }
-                        @if (item.Sayi >= 7)
+                        @if (item.Sayi >= 4)
                         {
                             <td>
                                 <div class="progress progress-xs">
