@@ -136,8 +136,10 @@
     <Compile Include="Controllers\GaleriController.cs" />
     <Compile Include="Controllers\IstatistikController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PersonelController.cs" />
     <Compile Include="Controllers\SatisController.cs" />
+    <Compile Include="Controllers\ToDoController.cs" />
     <Compile Include="Controllers\UrunController.cs" />
     <Compile Include="Controllers\UrunDetayController.cs" />
     <Compile Include="Global.asax.cs">
@@ -157,6 +159,7 @@
     <Compile Include="Models\Model\Personel.cs" />
     <Compile Include="Models\Model\SatisHareket.cs" />
     <Compile Include="Models\Model\SehirListele.cs" />
+    <Compile Include="Models\Model\ToDo.cs" />
     <Compile Include="Models\Model\Urun.cs" />
     <Compile Include="Models\Model\UrunDetay.cs" />
     <Compile Include="Models\Model\UrunListele.cs" />
@@ -2019,6 +2022,15 @@
     <Content Include="Files\dist\register.html" />
     <Content Include="Files\dist\tables.html" />
     <Content Include="Files\index.html" />
+    <Content Include="Files\LoginTemplate\weblogin\css\font-awesome.css" />
+    <Content Include="Files\LoginTemplate\weblogin\css\popup-box.css" />
+    <Content Include="Files\LoginTemplate\weblogin\css\style.css" />
+    <Content Include="Files\LoginTemplate\weblogin\fonts\fontawesome-webfont.svg" />
+    <Content Include="Files\LoginTemplate\weblogin\images\bg.jpg" />
+    <Content Include="Files\LoginTemplate\weblogin\index.html" />
+    <Content Include="Files\LoginTemplate\weblogin\js\jquery-2.1.4.min.js" />
+    <Content Include="Files\LoginTemplate\weblogin\js\jquery.magnific-popup.js" />
+    <Content Include="Files\LoginTemplate\weblogin\w3layouts-License.txt" />
     <Content Include="Files\scripts\build-assets.js" />
     <Content Include="Files\scripts\build-pug.js" />
     <Content Include="Files\scripts\build-scripts.js" />
@@ -2508,6 +2520,11 @@
     <Content Include="Files\AdminLTE-3.0.4\plugins\sweetalert2-theme-bootstrap-4\bootstrap-4.scss" />
     <Content Include="Files\AdminLTE-3.0.4\plugins\toastr\toastr.js.map" />
     <Content Include="Files\AdminLTE-3.0.4\README.md" />
+    <Content Include="Files\LoginTemplate\weblogin\fonts\fontawesome-webfont.eot" />
+    <Content Include="Files\LoginTemplate\weblogin\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Files\LoginTemplate\weblogin\fonts\fontawesome-webfont.woff" />
+    <Content Include="Files\LoginTemplate\weblogin\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Files\LoginTemplate\weblogin\fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -2564,6 +2581,8 @@
     <Content Include="Views\Istatistik\UrunPartial.cshtml" />
     <Content Include="Views\Istatistik\MarkaSayisiPartial.cshtml" />
     <Content Include="Views\Personel\List.cshtml" />
+    <Content Include="Views\ToDo\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
