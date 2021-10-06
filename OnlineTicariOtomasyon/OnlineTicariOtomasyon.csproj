@@ -130,6 +130,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CariController.cs" />
+    <Compile Include="Controllers\CariPanelController.cs" />
     <Compile Include="Controllers\DepartmanController.cs" />
     <Compile Include="Controllers\FaturaController.cs" />
     <Compile Include="Controllers\FaturaKalemController.cs" />
@@ -2002,6 +2003,23 @@
     <Content Include="Files\AdminLTE-3.0.4\plugins\toastr\toastr.min.css" />
     <Content Include="Files\AdminLTE-3.0.4\plugins\toastr\toastr.min.js" />
     <Content Include="Files\AdminLTE-3.0.4\starter.html" />
+    <Content Include="Files\CariPanel\css\simple-sidebar.css" />
+    <Content Include="Files\CariPanel\gulpfile.js" />
+    <Content Include="Files\CariPanel\index.html" />
+    <Content Include="Files\CariPanel\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Files\CariPanel\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Files\CariPanel\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Files\CariPanel\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Files\CariPanel\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Files\CariPanel\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Files\CariPanel\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="Files\CariPanel\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Files\CariPanel\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Files\CariPanel\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Files\CariPanel\vendor\jquery\jquery.js" />
+    <Content Include="Files\CariPanel\vendor\jquery\jquery.min.js" />
+    <Content Include="Files\CariPanel\vendor\jquery\jquery.slim.js" />
+    <Content Include="Files\CariPanel\vendor\jquery\jquery.slim.min.js" />
     <Content Include="Files\dist\401.html" />
     <Content Include="Files\dist\404.html" />
     <Content Include="Files\dist\500.html" />
@@ -2525,6 +2543,24 @@
     <Content Include="Files\LoginTemplate\weblogin\fonts\fontawesome-webfont.woff" />
     <Content Include="Files\LoginTemplate\weblogin\fonts\fontawesome-webfont.woff2" />
     <Content Include="Files\LoginTemplate\weblogin\fonts\FontAwesome.otf" />
+    <Content Include="Files\CariPanel\.gitignore" />
+    <Content Include="Files\CariPanel\.travis.yml" />
+    <Content Include="Files\CariPanel\LICENSE" />
+    <Content Include="Files\CariPanel\package-lock.json" />
+    <Content Include="Files\CariPanel\package.json" />
+    <Content Include="Files\CariPanel\README.md" />
+    <Content Include="Files\CariPanel\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Files\CariPanel\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Files\CariPanel\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Files\CariPanel\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Files\CariPanel\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Files\CariPanel\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Files\CariPanel\vendor\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="Files\CariPanel\vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Files\CariPanel\vendor\bootstrap\js\bootstrap.js.map" />
+    <Content Include="Files\CariPanel\vendor\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="Files\CariPanel\vendor\jquery\jquery.min.map" />
+    <Content Include="Files\CariPanel\vendor\jquery\jquery.slim.min.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -2583,6 +2619,10 @@
     <Content Include="Views\Personel\List.cshtml" />
     <Content Include="Views\ToDo\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Login\CreateUserPartial.cshtml" />
+    <Content Include="Views\Shared\_CariLayout.cshtml" />
+    <Content Include="Views\CariPanel\Index.cshtml" />
+    <Content Include="Views\CariPanel\MyOrders.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

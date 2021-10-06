@@ -30,6 +30,12 @@ namespace OnlineTicariOtomasyon.Models.Model
         public string CariSehir { get; set; }
 
         [Column(TypeName = "Varchar")]
+        [StringLength(20, ErrorMessage = "En fazla 20 karakter giriniz.")]
+        [Required(ErrorMessage = "Lütfen boş alan bırakmayınız.")]
+        [MinLength(2, ErrorMessage = "Lütfen daha uzun bir değer giriniz.")]
+        public string CariSifre { get; set; }
+
+        [Column(TypeName = "Varchar")]
         [StringLength(50, ErrorMessage = "En fazla 50 karakter giriniz.")]
         [Required(ErrorMessage = "Lütfen boş alan bırakmayınız.")]
         [MinLength(2, ErrorMessage = "Lütfen daha uzun bir değer giriniz.")]
