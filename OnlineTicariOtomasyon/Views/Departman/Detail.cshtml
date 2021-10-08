@@ -9,14 +9,25 @@
         @ViewBag.ad Departmanı
     </li>
 </ol>
-<table class="table table-bordered table-striped table-hover myDataTables">
+<table class="table table-bordered table-striped table-hover" id="example">
     <thead style="text-align:center;">
         <tr>
             <th scope="col">Personel Ad Soyad</th>
             <th scope="col">Adres</th>
             <th scope="col">Telefon</th>
-            <th scope="col">Görsel</th>
-            <th scope="col">Satışlar</th>
+            @foreach (var item in Model)
+            {
+                if (@item.DepartmanId==2)
+                {
+                    <th scope="col">Satışlar</th>
+                }
+                else
+                {
+                    <th scope="col"></th>
+                }
+
+            }
+
         </tr>
     </thead>
     <tbody style="text-align:center;">
@@ -26,10 +37,18 @@
                 <td>@item.PersonelAd @item.PersonelSoyad</td>
                 <td>@item.PersonelAdres</td>
                 <td>@item.PersonelTelefon</td>
-                <td>@item.PersonelGorsel</td>
-                <td>
-                    @Html.ActionLink("Detay", "PersonalDetail", new { id = item.PersonelId }, new { @class = "btn btn-info" })
-                </td>
+                @if (item.DepartmanId == 2)
+                {
+                    <td>
+                        @Html.ActionLink("Detay", "PersonalDetail", new { id = item.PersonelId }, new { @class = "btn btn-info" })
+                    </td>
+                }
+                else
+                {
+                    <td></td>
+                }
+
+
             </tr>
         }
 

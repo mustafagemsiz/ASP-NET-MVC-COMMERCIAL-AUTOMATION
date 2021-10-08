@@ -7,7 +7,7 @@
 
 <div class="col-md-6" style="margin:auto;">
 
-    @using (Html.BeginForm("Create", "Personel", FormMethod.Post))
+    @using (Html.BeginForm("Create", "Personel", FormMethod.Post,new { enctype="multipart/form-data"}))
     {
     <div>
         <label style="font-weight:bold;">Personel Ad</label>
@@ -27,8 +27,9 @@
         @Html.ValidationMessageFor(x => x.PersonelTelefon, null, new { @class = "text-danger" })
         <br />
         <label style="font-weight:bold;">Görsel</label>
-        @Html.TextBoxFor(x => x.PersonelGorsel, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.PersonelGorsel, null, new { @class = "text-danger" })
+        @*@Html.TextBoxFor(x => x.PersonelGorsel, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.PersonelGorsel, null, new { @class = "text-danger" })*@
+        <input type="file" name="PersonelGorsel" class="form-control" />
         <br />
         <label style="font-weight:bold;">Departman seçiniz</label>
         @Html.DropDownList("DepartmanId", (IEnumerable<SelectListItem>)ViewBag.departmanAd, new { @class = "form-control" })

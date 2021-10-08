@@ -54,5 +54,26 @@ namespace OnlineTicariOtomasyon.Controllers
 
             }
         }
+
+        [HttpGet]
+        public ActionResult AdminLogin()
+        {
+            return View();
+        }
+
+        public ActionResult AdminLogin(Admin p)
+        {
+            var deger = context.Admins.FirstOrDefault(x => x.KullaniciAd == p.KullaniciAd && x.Sifre == p.Sifre);
+            if (deger!=null)
+            {
+                FormsAuthentication.SetAuthCookie(deger.KullaniciAd, false);
+                Session["KullaniciAd"] = deger.KullaniciAd.ToString();
+                return RedirectToAction("Index", "Istatistik");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+        }
     }
 }

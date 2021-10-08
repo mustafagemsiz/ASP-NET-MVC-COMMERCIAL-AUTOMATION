@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -25,9 +26,29 @@ namespace OnlineTicariOtomasyon.Controllers
         }
 
         [HttpPost]
+       
         public ActionResult Create(Personel p)
         {
             ViewBag.departmanAd = new SelectList(context.Departmans, "DepartmanId", "DepartmanAd");
+
+            //if (Request.Files.Count>0)
+            //{
+            //    string dosyaAdi = Path.GetFileName(Request.Files[0].FileName);
+            //    string uzanti = Path.GetExtension(Request.Files[0].FileName);
+            //    string yol = "/Image/" + dosyaAdi ;
+            //    Request.Files[0].SaveAs(Server.MapPath(yol));
+            //    p.PersonelGorsel = "/Image/" + dosyaAdi;
+            //}
+
+            if (Request.Files.Count > 0)
+            {
+                var extention = Path.GetExtension(Request.Files[0].FileName);
+                var randomName = string.Format($"{DateTime.Now.Ticks}{extention}");
+                //var randomName = string.Format($"{Guid.NewGuid().ToString().Replace("-", "")}{extention}");
+                p.PersonelGorsel = "/Images/" + randomName;
+                var path = "~/Images/" + randomName;
+                Request.Files[0].SaveAs(Server.MapPath(path));
+            }
 
             if (ModelState.IsValid)
             {
@@ -51,6 +72,16 @@ namespace OnlineTicariOtomasyon.Controllers
         public ActionResult Edit(Personel p)
         {
             ViewBag.departmanAd = new SelectList(context.Departmans, "DepartmanId", "DepartmanAd");
+
+            if (Request.Files.Count > 0)
+            {
+                var extention = Path.GetExtension(Request.Files[0].FileName);
+                var randomName = string.Format($"{DateTime.Now.Ticks}{extention}");
+                //var randomName = string.Format($"{Guid.NewGuid().ToString().Replace("-", "")}{extention}");
+                p.PersonelGorsel = "/Images/" + randomName;
+                var path = "~/Images/" + randomName;
+                Request.Files[0].SaveAs(Server.MapPath(path));
+            }
 
             if (ModelState.IsValid)
             {

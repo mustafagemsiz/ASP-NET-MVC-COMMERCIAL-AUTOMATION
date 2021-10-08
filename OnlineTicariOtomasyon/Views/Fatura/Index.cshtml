@@ -9,34 +9,25 @@
 <table class="table table-bordered table-striped table-hover myDataTables">
     <thead style="text-align:center;">
         <tr>
-            <th scope="col">Fatura No</th>
-            <th scope="col">Seri No</th>
-            <th scope="col">Sıra No</th>
-            <th scope="col">Vergi Dairesi</th>
+            <th scope="col">Seri Sıra No</th>
             <th scope="col">Tarih</th>
             <th scope="col">Saat</th>
             <th scope="col">Toplam Tutar</th>
-            <th scope="col">Teslim Eden</th>
-            <th scope="col">Teslim Alan</th>
-            <th style="width:200px" scope="col">İşlemler</th>
+            <th scope="col">İşlemler</th>
         </tr>
     </thead>
     <tbody style="text-align:center;">
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.FaturaId</td>
-                <td>@item.FaturaSeriNo</td>
-                <td>@item.FaturaSıraNo</td>
-                <td>@item.VergiDairesi</td>
+                <td>@item.FaturaSeriNo @item.FaturaSıraNo</td>
                 <td>@Convert.ToDateTime(item.Tarih).ToShortDateString()</td>
                 <td>@item.Saat</td>
-                <td>@item.ToplamTutar</td>
-                <td>@item.TeslimEden</td>
-                <td>@item.TeslimAlan</td>
+                <td>@item.ToplamTutar ₺</td>
                 <td>
                     @Html.ActionLink("Düzenle", "Edit", new { id = item.FaturaId }, new { @class = "btn btn-warning" })
                     @Html.ActionLink("Detay", "Detail", new { id = item.FaturaId }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Yeni Kalem", "Detail", new { id = item.FaturaId }, new { @class = "btn btn-success" })
 
                 </td>
             </tr>
@@ -45,3 +36,46 @@
 
     </tbody>
 </table>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
+Faturalar
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Faturalar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td>Seri No</td>
+                            <td>Sıra No</td>
+                            <td>Tutar</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>@item.FaturaSeriNo</td>
+                            <td>@item.FaturaSıraNo</td>
+                            <td>@item.ToplamTutar</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Çıkış</button>
+            </div>
+        </div>
+    </div>
+</div>
