@@ -14,8 +14,7 @@
             <th scope="col">Alış Fiyatı</th>
             <th scope="col">Satış Fiyatı</th>
             <th scope="col">Kategori</th>
-            <th scope="col">Görsel</th>
-            <th style="width:150px" scope="col">İşlemler</th>
+            <th scope="col">İşlemler</th>
         </tr>
     </thead>
     <tbody style="text-align:center;">
@@ -28,10 +27,11 @@
             <td>@item.AlisFiyat</td>
             <td>@item.SatisFiyat</td>
             <td>@item.Kategori.KategoriAd</td>
-            <td><img src="@item.UrunGorsel" width="100px" height="100px"/></td>
             <td>
                 @Html.ActionLink("Düzenle", "Edit", new { id = item.UrunId }, new { @class = "btn btn-warning" })
                 @Html.ActionLink("Sil", "Delete", new { id = item.UrunId }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istediğine emin misin?');" })
+                @Html.ActionLink("Satış Yap", "Sell", new { id = item.UrunId }, new { @class = "btn btn-default", @style = "background-color:darkgreen; color:white;" })
+
             </td>
         </tr>
 

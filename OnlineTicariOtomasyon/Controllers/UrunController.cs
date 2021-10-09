@@ -102,8 +102,64 @@ namespace OnlineTicariOtomasyon.Controllers
                 return RedirectToAction("Index");
             }
             return View(p);
+        }
 
+        [HttpGet]
+        public ActionResult Sell(int id)
+        {
+            var urunId = context.Uruns.Find(id);
+            ViewBag.urunAd = urunId.UrunId;
 
+            var urunFiyat = context.Uruns.Find(id);
+            ViewBag.urunSatisFiyat = urunFiyat.SatisFiyat;
+            var cari = context.Caris
+.Select(x =>
+     new
+     {
+         id = x.CariId,
+         nameSurname = x.CariAd + " " + x.CariSoyad
+     });
+
+            ViewBag.cariAdSoyad = new SelectList(cari, "id", "nameSurname");
+
+            var personel = context.Personels.Where(x => x.DepartmanId == 2)
+                     .Select(x =>
+                             new
+                             {
+                                 id = x.PersonelId,
+                                 nameSurname = x.PersonelAd + " " + x.PersonelSoyad
+                             });
+
+            ViewBag.personelAdSoyad = new SelectList(personel, "id", "nameSurname"); return View();
+        }
+
+        [HttpPost]
+        public ActionResult Sell(SatisHareket p)
+        {
+
+            var cari = context.Caris.Select(x =>
+     new
+     {
+         id = x.CariId,
+         nameSurname = x.CariAd + " " + x.CariSoyad
+     });
+
+            ViewBag.cariAdSoyad = new SelectList(cari, "id", "nameSurname");
+
+            var personel = context.Personels.Where(x => x.DepartmanId == 2)
+                     .Select(x =>
+                             new
+                             {
+                                 id = x.PersonelId,
+                                 nameSurname = x.PersonelAd + " " + x.PersonelSoyad
+                             });
+
+            ViewBag.personelAdSoyad = new SelectList(personel, "id", "nameSurname");
+
+            context.SatisHarekets.Add(p);
+            p.Tarih = DateTime.Parse(DateTime.Now.ToShortDateString());
+            context.SaveChanges();
+            return RedirectToAction("Index","Satis");
         }
 
     }

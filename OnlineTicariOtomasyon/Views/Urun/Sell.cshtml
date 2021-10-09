@@ -1,0 +1,54 @@
+﻿@model OnlineTicariOtomasyon.Models.Model.SatisHareket
+
+@{
+    ViewBag.Title = "Sell";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-6" style="margin:auto;">
+    @using (Html.BeginForm("Sell", "Urun", FormMethod.Post))
+    {
+    <div>
+        <label style="font-weight:bold;">Ürün</label>
+        <input type="text" name="UrunId" value="@ViewBag.urunAd" class="form-control" readonly />
+        <br />
+        <label style="font-weight:bold;">Personel seçiniz</label>
+        @Html.DropDownList("PersonelId", (IEnumerable<SelectListItem>)ViewBag.personelAdSoyad, new { @class = "form-control" })
+        <br />
+        <label style="font-weight:bold;">Cari seçiniz</label>
+        @Html.DropDownList("CariId", (IEnumerable<SelectListItem>)ViewBag.cariAdSoyad, new { @class = "form-control" })
+        <br />
+        <label style="font-weight:bold;">Adet</label>
+        <input name="Adet" type="number" class="form-control" min="1" id="txt1" onchange="sum();" />
+        <br />
+        <label style="font-weight:bold;">Fiyat</label>
+        <input type="text" name="Fiyat" value="@ViewBag.urunSatisFiyat" class="form-control" id="txt2" onkeyup="sum();" />
+        <br />
+        @*<label style="font-weight:bold;">Tarih</label>
+        @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })*@
+        <br />
+        <label style="font-weight:bold;">Toplam</label>
+        <input type="text" name="ToplamTutar"  class="form-control" id="txt3" readonly value="0" />
+
+        <br />
+        <button style="margin-top:5px;" class="btn btn-success">Satış Yap</button>
+    </div>
+    }
+
+    @*<input type="text" id="txt1" onkeyup="sum();"/>*@
+    @*<input type="text" id="txt2" onkeyup="sum();"/>*@
+    @*<input type="text" id="txt3"/>*@
+    <script>
+        function sum() {
+            var sayi1 = document.getElementById('txt1').value;
+            var sayi2 = document.getElementById('txt2').value;
+            var sonuc = parseInt(sayi1) * parseInt(sayi2);
+            if (!isNaN(sonuc)) {
+                document.getElementById('txt3').value = sonuc;
+            }
+        }
+    </script>
+</div>
+
+
+

@@ -2623,6 +2623,7 @@
     <Content Include="Views\Shared\_CariLayout.cshtml" />
     <Content Include="Views\CariPanel\Index.cshtml" />
     <Content Include="Views\CariPanel\MyOrders.cshtml" />
+    <Content Include="Views\Urun\Sell.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
