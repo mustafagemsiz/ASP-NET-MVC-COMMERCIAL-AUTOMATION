@@ -136,6 +136,7 @@
     <Compile Include="Controllers\FaturaKalemController.cs" />
     <Compile Include="Controllers\GaleriController.cs" />
     <Compile Include="Controllers\IstatistikController.cs" />
+    <Compile Include="Controllers\KargoController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PersonelController.cs" />
@@ -155,6 +156,8 @@
     <Compile Include="Models\Model\Fatura.cs" />
     <Compile Include="Models\Model\FaturaKalem.cs" />
     <Compile Include="Models\Model\Gider.cs" />
+    <Compile Include="Models\Model\KargoDetay.cs" />
+    <Compile Include="Models\Model\KargoTakip.cs" />
     <Compile Include="Models\Model\Kategori.cs" />
     <Compile Include="Models\Model\MarkaSayisiListele.cs" />
     <Compile Include="Models\Model\Personel.cs" />
@@ -2624,6 +2627,9 @@
     <Content Include="Views\CariPanel\Index.cshtml" />
     <Content Include="Views\CariPanel\MyOrders.cshtml" />
     <Content Include="Views\Urun\Sell.cshtml" />
+    <Content Include="Views\Kargo\Index.cshtml" />
+    <Content Include="Views\Kargo\Create.cshtml" />
+    <Content Include="Views\Kargo\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,35 @@
+﻿@model OnlineTicariOtomasyon.Models.Model.KargoDetay
+
+@{
+    ViewBag.Title = "Yeni Kargo";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="col-md-6" style="margin:auto;">
+
+    @using (Html.BeginForm("Create", "Kargo", FormMethod.Post))
+    {
+    <div>
+        <label style="font-weight:bold;">Kargo Takip Kod</label>
+        <input type="text" class="form-control" value="@ViewBag.takipKod" name="TakipKodu" readonly />
+        <br />
+        <label style="font-weight:bold;">Personel</label>
+        @Html.TextBoxFor(x => x.Personel, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Personel, null, new { @class = "text-danger" })
+        <br />        
+        <label style="font-weight:bold;">Alıcı</label>
+        @Html.TextBoxFor(x => x.Alici, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Alici, null, new { @class = "text-danger" })
+        <br />
+        <label style="font-weight:bold;">Tarih</label>
+        <input type="date" class="form-control" name="Tarih" required/>
+        <br />
+        <label style="font-weight:bold;">Açıklama</label>
+        <textarea class="form-control" rows="5" name="Aciklama" required></textarea>
+        <br />
+        <button style="margin-top:5px;" class="btn btn-success">Kaydet</button>
+    </div>
+
+    }
+</div>
