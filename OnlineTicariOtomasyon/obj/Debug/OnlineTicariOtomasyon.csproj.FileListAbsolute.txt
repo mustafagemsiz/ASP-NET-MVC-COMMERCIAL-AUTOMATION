@@ -78,3 +78,4 @@ C:\Users\birha\source\repos\OnlineTicariOtomasyon\OnlineTicariOtomasyon\bin\Enti
 C:\Users\birha\source\repos\OnlineTicariOtomasyon\OnlineTicariOtomasyon\bin\EntityFramework.xml
 C:\Users\birha\source\repos\OnlineTicariOtomasyon\OnlineTicariOtomasyon\bin\EntityFramework.SqlServer.xml
 C:\Users\birha\source\repos\OnlineTicariOtomasyon\OnlineTicariOtomasyon\obj\Debug\OnlineTicariOtomasyon.csprojAssemblyReference.cache
+C:\Users\birha\source\repos\OnlineTicariOtomasyon\OnlineTicariOtomasyon\bin\QRCoder.dll
