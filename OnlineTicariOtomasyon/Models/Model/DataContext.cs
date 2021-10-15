@@ -8,6 +8,7 @@ namespace OnlineTicariOtomasyon.Models.Model
     public class DataContext:DbContext
     {
         public DbSet<KargoDetay> KargoDetays { get; set; }
+        public DbSet<Mesaj> Mesajs { get; set; }
         public DbSet<KargoTakip> KargoTakips  { get; set; }
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Cari> Caris { get; set; }

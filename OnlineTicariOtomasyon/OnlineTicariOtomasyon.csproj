@@ -55,6 +55,9 @@
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="QRCoder">
       <HintPath>..\..\..\..\Downloads\QRCoder.dll</HintPath>
     </Reference>
@@ -111,9 +114,6 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -138,6 +138,7 @@
     <Compile Include="Controllers\FaturaController.cs" />
     <Compile Include="Controllers\FaturaKalemController.cs" />
     <Compile Include="Controllers\GaleriController.cs" />
+    <Compile Include="Controllers\GrafikController.cs" />
     <Compile Include="Controllers\IstatistikController.cs" />
     <Compile Include="Controllers\KargoController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
@@ -164,6 +165,7 @@
     <Compile Include="Models\Model\KargoTakip.cs" />
     <Compile Include="Models\Model\Kategori.cs" />
     <Compile Include="Models\Model\MarkaSayisiListele.cs" />
+    <Compile Include="Models\Model\Mesaj.cs" />
     <Compile Include="Models\Model\Personel.cs" />
     <Compile Include="Models\Model\SatisHareket.cs" />
     <Compile Include="Models\Model\SehirListele.cs" />
@@ -2635,11 +2637,19 @@
     <Content Include="Views\Kargo\Create.cshtml" />
     <Content Include="Views\Kargo\Detail.cshtml" />
     <Content Include="Views\QRKod\Index.cshtml" />
+    <Content Include="Views\Grafik\Index.cshtml" />
+    <Content Include="Views\Grafik\Index2.cshtml" />
+    <Content Include="Views\Grafik\Index3.cshtml" />
+    <Content Include="Views\CariPanel\Message.cshtml" />
+    <Content Include="Views\CariPanel\MessageGet.cshtml" />
+    <Content Include="Views\CariPanel\MessageDetail.cshtml" />
+    <Content Include="Views\CariPanel\NewMessage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Images\" />
     <Folder Include="Views\DepartmanPartial\" />
+    <Folder Include="Views\Mesaj\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

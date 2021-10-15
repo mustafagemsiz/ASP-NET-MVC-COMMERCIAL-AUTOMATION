@@ -4,7 +4,6 @@
     ViewBag.Title = "Personel Satış Detay";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
 <table class="table table-bordered table-striped table-hover" id="example">
     <thead style="text-align:center;">
         <tr>
@@ -15,7 +14,6 @@
             <th scope="col">Fiyat</th>
             <th scope="col">Toplam</th>
             <th scope="col">Tarih</th>
-
         </tr>
     </thead>
     <tbody style="text-align:center;">
@@ -31,6 +29,5 @@
                 <td>@Convert.ToDateTime(item.Tarih).ToShortDateString()</td>
             </tr>
         }
-
     </tbody>
 </table>
