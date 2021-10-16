@@ -1,0 +1,33 @@
+﻿@using OnlineTicariOtomasyon.Models.Model
+@model List<KargoTakip>
+@{
+    ViewBag.Title = "KargoDetail";
+    Layout = "~/Views/Shared/_CariLayout.cshtml";
+}
+
+<ol class="breadcrumb mb-6" style="margin-top:10px;">
+    <li class="breadcrumb-item active">
+        Kargo Takip No: @ViewBag.kargoTakip
+    </li>
+</ol>
+<table class="table table-bordered table-striped table-hover">
+    <thead style="text-align:center;">
+        <tr>
+            <th scope="col">Sıra</th>
+            <th scope="col">Açıklama</th>
+            <th scope="col">Tarih</th>
+        </tr>
+    </thead>
+    <tbody style="text-align:center;">
+        @{ int i = 0;}
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@{i++;} @i</td>
+                <td>@item.Aciklama</td>
+                <td>@item.TarihZaman</td>
+            </tr>
+        }
+    </tbody>
+</table>

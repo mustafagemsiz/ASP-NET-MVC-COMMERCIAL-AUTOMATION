@@ -1,0 +1,48 @@
+﻿@using OnlineTicariOtomasyon.Models.Model
+@model List<KargoDetay>
+
+@{
+    ViewBag.Title = "KargoTakip";
+    Layout = "~/Views/Shared/_CariLayout.cshtml";
+}
+<div class="form-group" style="margin-top:10px;">
+    @using (Html.BeginForm("KargoTakip", "CariPanel", FormMethod.Get))
+    {
+        <p>
+            Kargo Takip Numarası: <input type="text" name="p" value="" required min="10" />
+            <input type="submit" value="Ara" />
+        </p>
+    }
+</div>
+
+<div style="margin-bottom:5px;"></div>
+<table class="table table-bordered table-striped table-hover myDataTables">
+    <thead style="text-align:center;">
+        <tr>
+            <th scope="col">Personel</th>
+            <th scope="col">Alıcı</th>
+            <th scope="col">Tarih</th>
+            <th scope="col">Detaylar</th>
+            <th scope="col">Kargo Takip No</th>
+            <th style="width:200px" scope="col">İşlemler</th>
+        </tr>
+    </thead>
+    <tbody style="text-align:center;">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Personel</td>
+                <td>@item.Alici</td>
+                <td>@Convert.ToDateTime(@item.Tarih).ToShortDateString()</td>
+                <td>@item.Aciklama</td>
+                <td>@item.TakipKodu</td>
+                <td>
+                    @Html.ActionLink("Düzenle", "Edit", new { id = item.TakipKodu }, new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Detaylar", "KargoDetail", new { id = item.TakipKodu }, new { @class = "btn btn-info" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

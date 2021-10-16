@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace OnlineTicariOtomasyon.Controllers
 {
@@ -34,9 +35,9 @@ namespace OnlineTicariOtomasyon.Controllers
         {
             var mail = (string)Session["CariMail"];
 
-            var deger = context.Mesajs.Where(x=>x.Alici==mail).OrderByDescending(x=>x.MesajId).ToList();
+            var deger = context.Mesajs.Where(x => x.Alici == mail).OrderByDescending(x => x.MesajId).ToList();
             ViewBag.gelenMesaj = context.Mesajs.Where(x => x.Alici == mail).Count();
-            if (ViewBag.gelenMesaj==null)
+            if (ViewBag.gelenMesaj == null)
             {
                 ViewBag.gelenMesaj = 0;
             }
@@ -55,7 +56,7 @@ namespace OnlineTicariOtomasyon.Controllers
         public ActionResult MessageGet()
         {
             var mail = (string)Session["CariMail"];
-            var deger = context.Mesajs.Where(x => x.Gonderici == mail).OrderByDescending(x=>x.MesajId).ToList();
+            var deger = context.Mesajs.Where(x => x.Gonderici == mail).OrderByDescending(x => x.MesajId).ToList();
 
             ViewBag.gelenMesaj = context.Mesajs.Where(x => x.Alici == mail).Count();
             if (ViewBag.gelenMesaj == null)
@@ -146,6 +147,29 @@ namespace OnlineTicariOtomasyon.Controllers
             return View();
         }
 
-        
+        [HttpGet]
+        public ActionResult KargoTakip(string p)
+        {
+                var k = from x in context.KargoDetays select x;
+                k = k.Where(y => y.TakipKodu.Contains(p));
+                return View(k.ToList());
+        }
+
+        [HttpGet]
+        public ActionResult KargoDetail(string id)
+        {
+            ViewBag.kargoTakip = id;
+            var deger = context.KargoTakips.Where(x => x.TakipKodu == id).ToList();
+            return View(deger);
+        }
+
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("Index", "Login");
+        }
+
     }
+
 }
