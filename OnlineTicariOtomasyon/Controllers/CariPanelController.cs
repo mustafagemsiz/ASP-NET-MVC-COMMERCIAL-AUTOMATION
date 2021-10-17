@@ -16,8 +16,19 @@ namespace OnlineTicariOtomasyon.Controllers
         public ActionResult Index()
         {
             var mail = (string)Session["CariMail"];
-            var deger = context.Caris.FirstOrDefault(x => x.CariMail == mail);
+            var deger = context.Caris.Where(x => x.CariMail == mail).ToList();
             ViewBag.degerMail = mail;
+            var mailId = context.Caris.Where(x => x.CariMail == mail).Select(y => y.CariId).FirstOrDefault();
+
+            var toplamSatis = context.SatisHarekets.Where(y => y.CariId == mailId).Count();
+            ViewBag.ToplamSatis = toplamSatis.ToString();
+
+            var urun = context.SatisHarekets.Where(x => x.CariId == mailId).Sum(y => y.Adet);
+            ViewBag.UrunAdet = urun;
+
+            var tutar = context.SatisHarekets.Where(x => x.CariId == mailId).Sum(y => y.ToplamTutar);
+            ViewBag.Tutar = tutar;
+
             return View(deger);
         }
 
@@ -150,9 +161,9 @@ namespace OnlineTicariOtomasyon.Controllers
         [HttpGet]
         public ActionResult KargoTakip(string p)
         {
-                var k = from x in context.KargoDetays select x;
-                k = k.Where(y => y.TakipKodu.Contains(p));
-                return View(k.ToList());
+            var k = from x in context.KargoDetays select x;
+            k = k.Where(y => y.TakipKodu.Contains(p));
+            return View(k.ToList());
         }
 
         [HttpGet]
