@@ -1,0 +1,35 @@
+﻿@model OnlineTicariOtomasyon.Models.Model.Cari
+
+<div class="col-md-6" style="margin:auto;">
+
+    @using (Html.BeginForm("UserSetting", "CariPanel", FormMethod.Post))
+    {
+    <div>
+        @Html.HiddenFor(x => x.CariId)
+        <label style="font-weight:bold;">Ad</label>
+        @Html.TextBoxFor(x => x.CariAd, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CariAd, null, new { @class = "text-danger" })
+        <br />
+        <label style="font-weight:bold;">Soyad</label>
+        @Html.TextBoxFor(x => x.CariSoyad, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CariSoyad, null, new { @class = "text-danger" })
+        <br />
+        <label style="font-weight:bold;">Şehir</label>
+        @Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CariSehir, null, new { @class = "text-danger" })
+        <br />
+        <label style="font-weight:bold;">Mail</label>
+        @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CariMail, null, new { @class = "text-danger" })
+        <br />
+        <label style="font-weight:bold;">Şifre</label>
+        @Html.TextBoxFor(x => x.CariSifre, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CariSifre, null, new { @class = "text-danger" })
+        <br />
+        <button style="margin-top:5px;" class="btn btn-success">Kaydet</button>
+    </div>
+
+    }
+</div>
+
+

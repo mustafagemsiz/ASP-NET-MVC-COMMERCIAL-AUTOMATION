@@ -78,3 +78,4 @@ C:\Users\birha\source\repos\OnlineTicariOtomasyon\OnlineTicariOtomasyon\obj\Debu
 C:\Users\birha\source\repos\OnlineTicariOtomasyon\OnlineTicariOtomasyon\obj\Debug\OnlineTicariOtomasyon.csproj.CopyComplete
 C:\Users\birha\source\repos\OnlineTicariOtomasyon\OnlineTicariOtomasyon\obj\Debug\OnlineTicariOtomasyon.dll
 C:\Users\birha\source\repos\OnlineTicariOtomasyon\OnlineTicariOtomasyon\obj\Debug\OnlineTicariOtomasyon.pdb
+C:\Users\birha\source\repos\OnlineTicariOtomasyon\OnlineTicariOtomasyon\obj\Debug\OnlineTicariOtomasyon.csprojAssemblyReference.cache

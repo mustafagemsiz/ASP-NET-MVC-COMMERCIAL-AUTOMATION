@@ -16,19 +16,29 @@ namespace OnlineTicariOtomasyon.Controllers
         public ActionResult Index()
         {
             var mail = (string)Session["CariMail"];
-            var deger = context.Caris.Where(x => x.CariMail == mail).ToList();
+
+            var deger = context.Mesajs.Where(x => x.Alici == mail).ToList();
+
             ViewBag.degerMail = mail;
             var mailId = context.Caris.Where(x => x.CariMail == mail).Select(y => y.CariId).FirstOrDefault();
 
             var toplamSatis = context.SatisHarekets.Where(y => y.CariId == mailId).Count();
             ViewBag.ToplamSatis = toplamSatis.ToString();
 
-            var urun = context.SatisHarekets.Where(x => x.CariId == mailId).Sum(y => y.Adet);
+            var urun = context.SatisHarekets.Where(x => x.CariId == mailId).Sum(y => y.Adet).ToString();
             ViewBag.UrunAdet = urun;
 
-            var tutar = context.SatisHarekets.Where(x => x.CariId == mailId).Sum(y => y.ToplamTutar);
+            var tutar = context.SatisHarekets.Where(x => x.CariId == mailId).Sum(y => y.ToplamTutar).ToString();
             ViewBag.Tutar = tutar;
 
+            var sehir = context.Caris.Where(x => x.CariId == mailId).Select(y => y.CariSehir).FirstOrDefault();
+            ViewBag.sehir = sehir;
+
+            var cariMail = context.Caris.Where(x => x.CariId == mailId).Select(y => y.CariMail).FirstOrDefault();
+            ViewBag.cariMail = cariMail;
+
+            var adSoyad = context.Caris.Where(x => x.CariMail == mail).Select(y => y.CariAd + " " + y.CariSoyad).FirstOrDefault().ToString();
+            ViewBag.AdSoyad = adSoyad;
             return View(deger);
         }
 
@@ -181,6 +191,39 @@ namespace OnlineTicariOtomasyon.Controllers
             return RedirectToAction("Index", "Login");
         }
 
+        [HttpGet]
+        public PartialViewResult UserSetting()
+        {
+            var mail = (string)Session["CariMail"];
+            var id = context.Caris.Where(x => x.CariMail == mail).Select(y => y.CariId).FirstOrDefault();
+            var cariBul = context.Caris.Find(id);
+            return PartialView("UserSetting",cariBul);
+        }
+
+        [HttpPost]
+        public ActionResult UserSetting(Cari c)
+        {
+            if (ModelState.IsValid)
+            {
+                var deger = context.Caris.Find(c.CariId);
+                deger.CariAd = c.CariAd;
+                deger.CariSoyad = c.CariSoyad;
+                deger.CariSehir = c.CariSehir;
+                deger.CariMail = c.CariMail;
+                deger.CariSifre = c.CariSifre;
+                deger.Durum = true;
+                context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(c);
+        }
+
+        [HttpGet]
+        public PartialViewResult Notification()
+        {
+            var veri = context.Mesajs.Where(x => x.Gonderici == "admin").ToList();
+            return PartialView("Notification",veri);
+        }
     }
 
 }
