@@ -9,6 +9,7 @@ using System.Web.Security;
 
 namespace OnlineTicariOtomasyon.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         DataContext context = new DataContext();
