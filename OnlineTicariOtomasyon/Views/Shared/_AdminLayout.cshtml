@@ -13,7 +13,7 @@
     <meta name="author" content="" />
     <title>@ViewBag.Title</title>
     <link href="~/Files/dist/css/styles.css" rel="stylesheet" />
-     @*DataTables*@
+    @*DataTables*@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap4.min.css">
@@ -28,14 +28,6 @@
         <a class="navbar-brand" href="index.html">Ticari Otomasyon</a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#">
             <i class="fas fa-bars"></i>
         </button><!-- Navbar Search-->
-        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-            <div class="input-group">
-                <input class="form-control" type="text" placeholder="Bul..." aria-label="Search" aria-describedby="basic-addon2" />
-                <div class="input-group-append">
-                    <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
-                </div>
-            </div>
-        </form>
         <!-- Navbar-->
         <ul class="navbar-nav ml-auto ml-md-0">
             <li class="nav-item dropdown">
@@ -43,7 +35,7 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                     <a class="dropdown-item" href="#">Ayarlar</a><a class="dropdown-item" href="#">Hesabım</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="login.html">Çıkış Yap</a>
+                    <a class="dropdown-item" href="/Admin/LogOut/">Çıkış Yap</a>
                 </div>
             </li>
         </ul>
@@ -62,10 +54,13 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-tags"></i></div>
                             Ürünler
                         </a>
-                        <a class="nav-link" href="~/Departman/Index/">
-                            <div class="sb-nav-link-icon"><i class="fas fa-suitcase"></i></div>
-                            Departmanlar
-                        </a>
+                        @if (User.IsInRole("A"))
+                        {
+                            <a class="nav-link" href="~/Departman/Index/">
+                                <div class="sb-nav-link-icon"><i class="fas fa-suitcase"></i></div>
+                                Departmanlar
+                            </a>
+                        }
                         <a class="nav-link" href="~/Cari/Index/">
                             <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                             Cariler
@@ -74,31 +69,12 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                             Personeller
                         </a>
+                        <a class="nav-link" href="~/Personel/List//">
+                            <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                            Personel Listesi
+                        </a>
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="layout-static.html">Static Navigation</a><a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a></nav>
-                        </div>
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                            <div class="sb-nav-link-icon"><i class="fas fa-key"></i></div>
-                            Admin
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                        </a>
-                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                    Yetkilendirme
-                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                </a>
-                                <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                    <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="login.html">Giriş Yap</a><a class="nav-link" href="register.html">Kayıt Ol</a><a class="nav-link" href="password.html">Şifremi Unuttum</a></nav>
-                                </div>
-                                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                    Hata Sayfaları
-                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                </a>
-                                <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                    <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="401.html">401 Page</a><a class="nav-link" href="404.html">404 Page</a><a class="nav-link" href="500.html">500 Page</a></nav>
-                                </div>
-                            </nav>
                         </div>
                         <div class="sb-sidenav-menu-heading">Rapor & Fatura</div>
                         <a class="nav-link" href="~/Fatura/Index/">
@@ -117,10 +93,13 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             İstatistikler
                         </a>
-                        <a class="nav-link" href="~/Istatistik/ProgressBar/">
-                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                            Oranlar
-                        </a>
+                        @if (User.IsInRole("A"))
+                        {
+                            <a class="nav-link" href="~/Istatistik/ProgressBar/">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Oranlar
+                            </a>
+                        }
                         <a class="nav-link" href="~/Galeri/Index/">
                             <div class="sb-nav-link-icon"><i class="fas fa-images"></i></div>
                             Galeri
@@ -170,44 +149,44 @@
     <script src="~/Files/dist/assets/demo/datatables-demo.js"></script>
     <script src="~/Files/dist/js/scripts.js"></script>
     <script>
-            $(document).ready(function () {
-               var table = $('#example').DataTable({
-                    //language: {
-                    //    url: "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
-                   //},
-                   dom: "Blfrtip",
-                   language: {
-                       url: "//cdn.datatables.net/plug-ins/1.10.12/i18n/Turkish.json"
-                   },
-                   lengthChange: true,
-                    //buttons: ['copy', 'excel', 'csv', 'pdf', 'colvis']
-                    buttons: [
-                        { extend: 'excelHtml5', className: 'btn btn-info' },
-                        { extend: 'pdfHtml5', orientation: 'centerspace', className: 'btn btn-success' }
-                    ]
-                });
-                table.buttons().container()
-                    .appendTo('#example_wrapper .col-md-6:eq(0)');
-            });
-        </script>
-    @*<script>
         $(document).ready(function () {
             var table = $('#example').DataTable({
+                //language: {
+                //    url: "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+                //},
+                dom: "Blfrtip",
                 language: {
                     url: "//cdn.datatables.net/plug-ins/1.10.12/i18n/Turkish.json"
                 },
                 lengthChange: true,
-
-                dom: "Blfrtip",
+                //buttons: ['copy', 'excel', 'csv', 'pdf', 'colvis']
                 buttons: [
                     { extend: 'excelHtml5', className: 'btn btn-info' },
                     { extend: 'pdfHtml5', orientation: 'centerspace', className: 'btn btn-success' }
-                ],
+                ]
             });
-                table.buttons().container()
+            table.buttons().container()
                 .appendTo('#example_wrapper .col-md-6:eq(0)');
-            });
-    </script>*@
+        });
+    </script>
+    @*<script>
+            $(document).ready(function () {
+                var table = $('#example').DataTable({
+                    language: {
+                        url: "//cdn.datatables.net/plug-ins/1.10.12/i18n/Turkish.json"
+                    },
+                    lengthChange: true,
+
+                    dom: "Blfrtip",
+                    buttons: [
+                        { extend: 'excelHtml5', className: 'btn btn-info' },
+                        { extend: 'pdfHtml5', orientation: 'centerspace', className: 'btn btn-success' }
+                    ],
+                });
+                    table.buttons().container()
+                    .appendTo('#example_wrapper .col-md-6:eq(0)');
+                });
+        </script>*@
 </body>
 </html>
 

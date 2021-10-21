@@ -8,6 +8,7 @@ using System.Web.Security;
 
 namespace OnlineTicariOtomasyon.Controllers
 {
+   
     public class CariPanelController : Controller
     {
         // GET: CariPanel

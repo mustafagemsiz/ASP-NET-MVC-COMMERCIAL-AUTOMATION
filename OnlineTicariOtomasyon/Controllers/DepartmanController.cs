@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using OnlineTicariOtomasyon.Models.Model;
 namespace OnlineTicariOtomasyon.Controllers
 {
+    [Authorize]
     public class DepartmanController : Controller
     {
         DataContext context = new DataContext();
@@ -17,6 +18,7 @@ namespace OnlineTicariOtomasyon.Controllers
             return View(deger);
         }
 
+        [Authorize(Roles ="A")]
         [HttpGet]
         public ActionResult Create()
         {
